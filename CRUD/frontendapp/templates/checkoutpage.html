@@ -1,0 +1,532 @@
+<!doctype html>
+{% extends "./base.html" %}
+{% block content %}
+{% load static %}
+<html class="no-js" lang="zxx">
+   
+<!-- Mirrored from themepure.net/template/dukamarket/dukamarket/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Feb 2022 17:22:02 GMT -->
+
+      <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+
+
+    <!-- preloader start -->
+    
+    <!-- preloader end -->
+
+      <!-- back to top start -->
+     
+      <!-- back to top end -->
+      
+    <!-- header-start -->
+     
+     <!-- header-end -->
+
+    <!-- offcanvas area start -->
+   
+    <!-- offcanvas area end -->      
+    
+    <!-- offcanvas area end -->
+
+    <main>
+        <!-- page-banner-area-start -->
+        <div class="page-banner-area page-banner-height"  data-background="{% static 'assets/img/banner/aboutus.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="page-banner-content text-center">
+                            <h4 class="breadcrumb-title">Checkout</h4>
+                            <div class="breadcrumb-two">
+                                <nav>
+                                   <nav class="breadcrumb-trail breadcrumbs">
+                                      <ul class="breadcrumb-menu">
+                                         <li class="breadcrumb-trail">
+                                            <a href="index.html"><span>Home</span></a>
+                                         </li>
+                                         <li class="trail-item">
+                                            <span>Checkout</span>
+                                         </li>
+                                      </ul>
+                                   </nav> 
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page-banner-area-end -->
+
+        <!-- coupon-area-start -->
+        <section class="coupon-area pt-120 pb-30">
+            <div class="container">
+            <div class="row">
+            <div class="col-md-6">
+                <div class="coupon-accordion">
+                        <!-- ACCORDION START -->
+                        <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
+                        <div id="checkout-login" class="coupon-content">
+                        <div class="coupon-info">
+                            <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est
+                                    sit amet ipsum luctus.</p>
+                            <form action="#">
+                                    <p class="form-row-first">
+                                    <label>Username or email <span class="required">*</span></label>
+                                    <input type="text">
+                                    </p>
+                                    <p class="form-row-last">
+                                    <label>Password <span class="required">*</span></label>
+                                    <input type="text">
+                                    </p>
+                                    <p class="form-row">
+                                    <button class="tp-btn-h1" type="submit">Login</button>
+                                    <label>
+                                        <input type="checkbox">
+                                        Remember me
+                                    </label>
+                                    </p>
+                                    <p class="lost-password">
+                                    <a href="#">Lost your password?</a>
+                                    </p>
+                            </form>
+                        </div>
+                        </div>
+                        <!-- ACCORDION END -->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="coupon-accordion">
+                        <!-- ACCORDION START -->
+                        <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>
+                        <div id="checkout_coupon" class="coupon-checkout-content">
+                        <div class="coupon-info">
+                            <form action="#">
+                                    <p class="checkout-coupon">
+                                    <input type="text" placeholder="Coupon Code">
+                                    <button class="tp-btn-h1" type="submit">Apply Coupon</button>
+                                    </p>
+                            </form>
+                        </div>
+                        </div>
+                        <!-- ACCORDION END -->
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+        <!-- coupon-area-end -->
+
+        <!-- checkout-area-start -->
+        <section class="checkout-area pb-85">
+            <div class="container">
+                <form method="post" action="{% url 'saveCheckOut' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                        <div class="col-lg-12">
+                            <div class="checkbox-form">
+                                <h3>Billing Details</h3>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="country-select">
+                                            <label>District <span class="required">*</span></label>
+                                            <select style="display: none;" name="district" >
+                                                <option selected>Select District</option>
+                                                <option value="thiruvanthapuram">thiruvanthapuram</option>
+                                                <option value="kollam">kollam</option>
+                                                <option value="pathanamthitta">pathanamthitta</option>
+                                                <option value="alapuzha">alapuzha</option>
+                                                <option value="kottayam">kottayam</option>
+                                                <option value="idukki">idukki</option>
+                                                <option value="ernamkulam">ernamkulam</option>
+                                                <option value="palakkad">palakkad</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label>First Name <span class="required">*</span></label>
+                                            <input type="text" placeholder="" name="fname">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label>Last Name <span class="required">*</span></label>
+                                            <input type="text" placeholder="" name="lname">
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label>Address <span class="required">*</span></label>
+                                            <input type="text" placeholder="Street address" name="address1">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <input type="text" placeholder="Apartment, suite, unit etc. (optional)" name ="address2">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label>Town / City <span class="required">*</span></label>
+                                            <input type="text" placeholder="Town / City" name="city">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label>State / County <span class="required">*</span></label>
+                                            <input type="text" placeholder="" name="state">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label>Postcode / Zip <span class="required">*</span></label>
+                                            <input type="text" placeholder="Postcode / Zip" name="zip">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label>Email Address <span class="required">*</span></label>
+                                            <input type="email" placeholder="" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label>Phone <span class="required">*</span></label>
+                                            <input type="text" placeholder="Phone" name="number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list create-acc">
+                                            <input id="cbox" type="checkbox">
+                                            <label>are you above 21 years old</label>
+                                        </div>
+                                        <div id="cbox_info" class="checkout-form-list create-account">
+                                            <p>Create an account by entering the information below. If you are a returning
+                                                customer please login at the top of the page.</p>
+                                         
+                                        </div>
+                                    </div>
+                                    <div class="order-button-payment mt-20">
+                                        
+</div></div></div></div></form>
+
+<a href="{% url 'payment_page' %}">
+<button type="submit" class="tp-btn-h1">Place order</button></a>
+
+                        
+                                        </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                       
+                        
+               
+            </div>
+        </section>
+        <!-- checkout-area-end -->
+
+        <!-- cta-area-start -->
+        <section class="cta-area d-ldark-bg pt-55 pb-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item cta-item-d mb-30">
+                            <h5 class="cta-title">Follow Us</h5>
+                            <p>We make consolidating, marketing and tracking your social media website easy.</p>
+                            <div class="cta-social">
+                                <div class="social-icon">
+                                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                                    <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="rss"><i class="fas fa-rss"></i></a>
+                                    <a href="#" class="dribbble"><i class="fab fa-dribbble"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item mb-30">
+                            <h5 class="cta-title">Sign Up To Newsletter</h5>
+                            <p>Join 60.000+ subscribers and get a new discount coupon  on every Saturday.</p>
+                            <div class="subscribe__form">
+                                <form action="#">
+                                    <input type="email" placeholder="Enter your email here...">
+                                    <button>subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item mb-30">
+                            <h5 class="cta-title">Download App</h5>
+                            <p>DukaMarket App is now available on App Store & Google Play. Get it now.</p>
+                            <div class="cta-apps">
+                                <div class="apps-store">
+                                    <a href="#"><img src="{% static 'assets/img/brand/app_ios.png' %}" alt=""></a>
+                                    <a href="#"><img src="{% static 'assets/img/brand/app_android.png' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- cta-area-end -->
+
+    </main>
+
+    <!-- footer-start -->
+    <footer>
+        <div class="fotter-area d-dark-bg">
+            <div class="footer__top pt-80 pb-15">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-4 order-last-md">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="footer__widget">
+                                        <div class="footer__widget-title">
+                                            <h4>Customer Care</h4>
+                                        </div>
+                                        <div class="footer__widget-content">
+                                            <div class="footer__link">
+                                                <ul>
+                                                    <li><a href="faq.html">New Customers</a></li>
+                                                    <li><a href="faq.html">How to use Account</a></li>
+                                                    <li><a href="faq.html">Placing an Order</a></li>
+                                                    <li><a href="faq.html">Payment Methods</a></li>
+                                                    <li><a href="faq.html">Delivery &amp; Dispatch</a></li>
+                                                    <li><a href="faq.html">Problems with Order</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="footer__widget">
+                                        <div class="footer__widget-title">
+                                            <h4>Customer Service</h4>
+                                        </div>
+                                        <div class="footer__widget-content">
+                                            <div class="footer__link">
+                                                <ul>
+                                                    <li><a href="faq.html">Help Center</a></li>
+                                                    <li><a href="faq.html">Contact Us</a></li>
+                                                    <li><a href="faq.html">Report Abuse</a></li>
+                                                    <li><a href="faq.html">Submit a Dispute</a></li>
+                                                    <li><a href="faq.html">Policies &amp; Rules</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-8 order-first-md">
+                            <div class="footer__top-left">
+                                <div class="row">
+                                    
+                                    <div class="col-xl-7 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="row">
+                                            
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                <div class="footer__widget">
+                                                    <div class="footer__widget-title">
+                                                        <h4>My Account</h4>
+                                                    </div>
+                                                    <div class="footer__widget-content">
+                                                        <div class="footer__link">
+                                                            <ul>
+                                                                <li><a href="faq.html">Product Support</a></li>
+                                                                <li><a href="checkout.html">Checkout</a></li>
+                                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                                <li><a href="faq.html">Terms &amp; Conditions &amp;</a></li>
+                                                                <li><a href="faq.html">Redeem Voucher</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="footer__widget">
+                                        <div class="footer__widget-title">
+                                            <h4>Quick Links</h4>
+                                        </div>
+                                        <div class="footer__widget-content">
+                                            <div class="footer__link">
+                                                <ul>
+                                                    <li><a href="contact.html">Store Location</a></li>
+                                                    <li><a href="my-account.html">My account</a></li>
+                                                    <li><a href="contact.html">Order Tracking</a></li>
+                                                    <li><a href="faq.html">FAQs</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div></div>
+                                    </div><div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="footer__widget">
+                                            <div class="footer__widget-title mb-20">
+                                                <h4>About The Store</h4>
+                                            </div>
+                                            <div class="footer__widget-content">
+                                                <p class="footer-text mb-35">Our mission statement is to provide the absolute best customer experience available in the Electronic industry without exception.</p>
+                                                <div class="footer__hotline d-flex align-items-center mb-10">
+                                                    <div class="icon mr-15">
+                                                        <i class="fal fa-headset"></i>
+                                                    </div>
+                                                    <div class="text">
+                                                        <h4>Got Question? Call us 24/7!</h4>
+                                                        <span><a href="tel:100-123-456-7890">(+100) 123 456 7890</a></span>
+                                                    </div>
+                                                </div>
+                                                <div class="footer__info">
+                                                    <ul>
+                                                        <li>
+                                                            <span>Add:  <a target="_blank" href="https://goo.gl/maps/c82DDZ8ALvL878Bv8">Walls Street 68, Mahattan, New York, USA</a></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="container">
+                    <div class="footer__bottom-content pt-55 pb-45">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="footer__links text-center mb-25">
+                                    <p>
+                                        <a href="faq.html">Online Shopping</a>
+                                        <a href="faq.html">Promotions</a>
+                                        <a href="faq.html">My Orders</a>
+                                        <a href="faq.html">Help</a>
+                                        <a href="faq.html">Customer Service</a>
+                                        <a href="faq.html">Support</a>
+                                        <a href="faq.html">Most Populars</a>
+                                        <a href="faq.html">New Arrivals</a>
+                                        <a href="faq.html">Special Products </a>
+                                        <a href="faq.html">Manufacturers</a>
+                                        <br>
+                                        <a href="faq.html">Garden Equipments</a>
+                                        <a href="faq.html">Powers And Hand Tools </a>
+                                        <a href="faq.html">Utensil &amp; Gadget </a>
+                                        <a href="faq.html">Printers</a>
+                                        <a href="faq.html">Projectors</a>
+                                        <a href="faq.html">Scanners</a>
+                                        <a href="faq.html">Store</a>
+                                        <a href="faq.html">Business</a>
+                                    </p>
+                                </div>
+                                <div class="payment-image text-center mb-25">
+                                    <a href="contact.html"><img src="{% static 'assets/img/payment/payment.png' %}" alt=""></a>
+                                </div>
+                                <div class="copy-right-area text-center">
+                                    <p>Copyright © <span>DukaMarket.</span> All Rights Reserved. Powered by <a href="#"><span class="main-color">Theme_Pure.</span></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer-end -->
+
+      <!-- JS here -->
+      <script src="{% static 'assets/js/vendor/jquery.js' %}"></script>
+      <script src="{% static 'assets/js/vendor/waypoints.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap-bundle.js' %}"></script>
+      <script src="{% static 'assets/js/meanmenu.js' %}"></script>
+      <script src="{% static 'assets/js/swiper-bundle.js' %}"></script>
+      <script src="{% static 'assets/js/tweenmax.js' %}"></script>
+      <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+      <script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+      <script src="{% static 'assets/js/parallax.js' %}"></script>
+      <script src="{% static 'assets/js/backtotop.js' %}"></script>
+      <script src="{% static 'assets/js/nice-select.js' %}"></script>
+      <script src="{% static 'assets/js/countdown.min.js' %}"></script>
+      <script src="{% static 'assets/js/counterup.js' %}"></script>
+      <script src="{% static 'assets/js/ui-slider-range.js' %}"></script>
+      <script src="{% static 'assets/js/wow.js' %}"></script>
+      <script src="{% static 'assets/js/isotope-pkgd.js' %}"></script>
+      <script src="{% static 'assets/js/imagesloaded-pkgd.js' %}"></script>
+      <script src="{% static 'assets/js/ajax-form.js' %}"></script>
+      <script src="{% static 'assets/js/main.js' %}"></script>
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+   </body>
+   <script>
+    var options = {
+      "key": "rzp_test_oPlxYBAr9G2kLB", // Enter the Key ID generated from the Dashboard
+      "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      "currency": "INR",
+      "name": "Acme Corp",
+      "description": "Test Transaction",
+      "image": "https://example.com/your_logo",
+      "order_id": "order_IluGWxBm9U8zJ8", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      "handler": function (response){
+          console.log("handler",response);
+          alert("handler");
+         
+      },
+      "prefill": {
+          "name": "Gaurav Kumar",
+          "email": "gaurav.kumar@example.com",
+          "contact": "9000090000"
+      },
+      "notes": {
+          "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+          "color": "#3399cc"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+      console.log("failed",response);
+        alert("failed");
+    });
+    // rzp1.on('payment.success', function (response){
+    //       console.log("success",response);
+    //       alert("success");
+    // });
+    document.getElementById('proceedToPayBtn').onclick = function(e){
+      debugger;
+      $.ajax({
+          type: "POST",
+          url: '/frontendapp/paymenthandler/',   
+          data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                amount: "this is my test view"},   /* Passing the text data */
+          success:  function(response){
+                 console.log(response);
+                 options.order_id =response.razorpay_order_id;
+                  var rzp1 = new Razorpay(options);
+                  rzp1.open();
+                  e.preventDefault();
+             },
+          error: function(e){
+              console.log(e);
+             },
+             fail: function(e){
+              console.log(e);
+             }
+          });
+    
+      }
+      </script>
+      {% endblock %}
+<!-- Mirrored from themepure.net/template/dukamarket/dukamarket/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Feb 2022 17:22:02 GMT -->
+</html>

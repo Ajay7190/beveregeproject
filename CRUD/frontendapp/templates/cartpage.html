@@ -1,0 +1,122 @@
+{% extends "./base.html" %}
+{% block content %}
+{% load static %}   
+
+        <!-- page-banner-area-start -->
+        <div class="page-banner-area page-banner-height-2" data-background="{% static 'assets/img/banner/page-banner-4.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="page-banner-content text-center">
+                            <h4 class="breadcrumb-title">Your Cart</h4>
+                            <div class="breadcrumb-two">
+                                <nav>
+                                   <nav class="breadcrumb-trail breadcrumbs">
+                                      <ul class="breadcrumb-menu">
+                                         <li class="breadcrumb-trail">
+                                            <a href="index.html"><span>Home</span></a>
+                                         </li>
+                                         <li class="trail-item">
+                                            <span>Cart</span>
+                                         </li>
+                                      </ul>
+                                   </nav> 
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page-banner-area-end -->
+
+        <!-- cart-area-start -->
+        <section class="cart-area pt-120 pb-120">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                        <form action="#">
+                           <div class="table-content table-responsive">
+                            <table class="table">
+                                <thead>
+                                   <tr>
+                                      <th class="product-thumbnail">product</th>
+                                      <th class="cart-product-name">PRICE</th>
+                                      <th class="product-price">QUANTITY</th>
+                                      <th class="product-quantity">TOTAL PRICE</th>
+                                
+                                      <th class="product-remove">Remove</th>
+                                   </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in cdata %}
+                                   <tr>
+                                      <!-- <td class="product-thumbnail"><a href="shop-details.html"><img src="{% static 'assets/img/cart/shop-p-10.jpg' %}" alt=""></a></td> -->
+                                      <td class="product-name"><a href="shop-details.html">{{i.productname}}</a></td>
+                                      <td class="product-price">
+                                        <input type="text" value="{{i.price}}" id="price" style="border: none;">
+                                                                              </td>
+                                      <td class="product-quantity">
+                                        <span>{{i.quantity}}</span>
+                                            <!-- <div class="cart-plus-minus"><input type="text" value="1"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div> -->
+                                      </td>
+                                      <td class="product-subtotal">
+                                        
+                                      <span>{{i.tprice}}</span>
+                                    
+                                    </td>
+                                      <td class="product-remove"><a href="{% url 'deleteproduct' proid=i.id %}"><i class="fa fa-times"></i></a></td>
+                                   </tr>
+                                   {% endfor %}
+                                   
+                                </tbody>
+                          </table>
+                           </div>
+                           <!-- <div class="row">
+                              <div class="col-12">
+                                    <div class="coupon-all">
+                                       <div class="coupon">
+                                          <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">
+                                          <button class="tp-btn-h1" name="apply_coupon" type="submit">Apply
+                                                coupon</button>
+                                       </div>
+                                        <div class="coupon2">
+                                          <button class="tp-btn-h1" name="update_cart" type="submit">Update cart</button>
+                                       </div> -->
+                                    </div>
+                              </div>
+                           </div> 
+                           <div class="row justify-content-end">
+                              <div class="col-md-5">
+                                    <div class="cart-page-total">
+                                       <h2>Cart totals</h2>
+                                       <ul class="mb-20">
+                                          <li><input type="text"  style="border: red;" value="{{total_price}}"></li>
+                                       </ul>
+                                       <a class="tp-btn-h1" id="proceedToPayBtn" href="{% url 'Checkoutpage' %}">Proceed to checkout</a>
+                                       <!-- <button type="button" class="tp-btn-h1" id="proceedToPayBtn" >Proceed to checkout</button>
+                                    -->
+                                    </div>
+                              </div>
+                           </div>
+                        </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- cart-area-end -->
+
+<script>
+
+$(document).ready(function(){
+            $("#quantity").change(function(){
+                p = document.getElementById("quantity").value
+                q = document.getElementById("price").value
+                document.getElementById("tprice").value = p*q
+                document.getElementById('subtotal').value = p*q
+
+            })
+})
+</script>
+
+{% endblock %}

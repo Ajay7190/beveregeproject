@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table, th, td {
+      border: 3px solid red;
+      text-align: center;
+      }
+    </style>
+</head>
+<body>
+    <div >
+
+        <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">BOOKED DATA</h4>
+
+             <div class="sample_table">
+              <table style="width: 100%;">
+                <thead>
+                  <tr>
+
+
+
+
+                    <th>
+                      DISTRICT
+                    </th>
+                    <th>
+                      FIRSTNAME
+                    </th>
+                    <th>
+                      LAST NAME
+                    </th >
+
+                    <th>
+                      ADRESS
+                    </th >
+
+                    <th>
+                      second adress
+                    </th >
+
+                    <th>
+                      city
+                    </th >
+
+
+
+
+                    <th>
+                      state
+                    </th >
+
+                    <th>
+                      email
+                    </th >
+
+                    <th>
+                      zip
+                      
+                    </th >
+
+
+                    <th>
+                      mobile
+                      
+                    </th >
+
+                    <th>
+                      permission
+                      
+                    </th >
+
+
+                    {% comment %} <th>
+                      ZIP
+                      
+                    </th >
+
+
+                    <th>
+                      mobile
+                      
+                    </th > {% endcomment %}
+
+
+
+
+                    {% comment %} <th>
+                      Edit
+                    </th>
+                    <th>
+                      Delete
+                    </th> {% endcomment %}
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in book %}
+                  <tr>
+                    <td>{{i.district}}</td>
+                    {% comment %} <td> <img src="{{i.category_image.url}}" alt="" style=" width: 100px; height: 100px;"></td> {% endcomment %}
+                    <td>{{i.firstname}}</td>
+                    <td>{{i.lastname}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.adresstwo}}</td>
+                    <td>{{i.city}}</td>
+                    <td>{{i.state}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.zip}}</td>
+                    <td>{{i.mobile}}</td>
+
+
+                    {% comment %} <td><a href="{% url 'updatecategorydata' dataid=i.id %}" class="btn btn-primary mr-2">Edit</a></td> {% endcomment %}
+                    <td><a href="{% url 'deletecheckoutData' dataid=i.id %}" class="btn btn-primary mr-2">Delete</a></td>
+                  </tr>
+                {% endfor %}
+
+                </tbody>
+
+              </table>
+
+             </div>
+            </div>
+          </div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% if messages %}
+        {% for i in messages %}
+          {% if i.tags == 'warning' %}
+          <script>
+          swal('{{i}}', '','warning');
+          </script>
+          {% elif i.tags == 'error' %}
+          <script>
+          swal('{{i}}', '','error');
+          </script>
+          {% else %}
+         <script>
+          swal('{{i}}', '','success');
+          </script>
+          {% endif %}
+      {% endfor %}
+    {% endif %}
+</body>
+</html>
+{% endblock %}
+
+
+
